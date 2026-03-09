@@ -8,6 +8,7 @@ API RESTful para gerenciamento de usuários, cursos e matrículas, construída c
 - Criação de matrículas com validações
 - Consulta relacional de cursos por usuário
 - Tratamento padronizado de erros
+- Normalização de campos de texto (remove espaços extras) e bloqueio de texto em branco
 
 ## Estrutura de pastas
 

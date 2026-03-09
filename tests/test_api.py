@@ -30,3 +30,20 @@ def test_full_flow():
     user_courses = client.get(f"/users/{user_id}/courses")
     assert user_courses.status_code == 200
     assert len(user_courses.json()["data"]["courses"]) == 1
+
+
+def test_duplicate_email_returns_conflict():
+    email = f"bia-{uuid.uuid4().hex[:8]}@example.com"
+    first_user = client.post("/users", json={"name": "Bia", "email": email})
+    assert first_user.status_code == 201
+
+    second_user = client.post("/users", json={"name": "Bia 2", "email": email})
+    assert second_user.status_code == 409
+    assert second_user.json()["message"] == "Email already exists"
+
+
+def test_whitespace_name_returns_validation_error():
+    response = client.post("/users", json={"name": "   ", "email": f"c-{uuid.uuid4().hex[:8]}@example.com"})
+    assert response.status_code == 422
+    assert response.json()["success"] is False
+    assert response.json()["message"] == "Validation error"

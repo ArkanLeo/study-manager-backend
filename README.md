@@ -1,15 +1,15 @@
-# 📚 StudyManager API
+# StudyManager API
 
-API RESTful para gerenciamento de usuários, cursos e matrículas, construída com **FastAPI + SQLAlchemy** seguindo princípios de **Arquitetura Limpa** e **Clean Code**.
+API RESTful para gerenciamento de usuários, cursos e matrículas, construída com FastAPI e SQLAlchemy, seguindo princípios de Arquitetura Limpa e Clean Code.
 
-## ✅ Funcionalidades
+## Funcionalidades
 - CRUD completo de usuários
 - CRUD completo de cursos
 - Criação de matrículas com validações
 - Consulta relacional de cursos por usuário
 - Tratamento padronizado de erros
 
-## 🏗️ Estrutura de pastas
+## Estrutura de pastas
 
 ```bash
 app/
@@ -21,9 +21,9 @@ app/
 └── infrastructure/
 ```
 
-A organização separa responsabilidades por camadas: **controllers** recebem e devolvem HTTP, **usecases** concentram regras de negócio, **repositories** isolam acesso a dados via ORM, **entities** representam o domínio (modelos e relacionamentos) e **infrastructure** concentra configuração técnica do banco e sessão. Assim, o código fica mais testável, legível e fácil de manter, evitando lógica de negócio nos controllers.
+A organização separa responsabilidades por camadas: controllers recebem e devolvem HTTP, usecases concentram regras de negócio, repositories isolam acesso a dados via ORM, entities representam o domínio (modelos e relacionamentos) e infrastructure concentra configuração técnica do banco e sessão.
 
-## 🚀 Como executar
+## Como executar
 
 ```bash
 python -m venv .venv
@@ -34,7 +34,7 @@ uvicorn app.main:app --reload
 
 Acesse: `http://127.0.0.1:8000/docs`
 
-## 📌 Endpoints
+## Endpoints
 
 ### Usuários
 - `POST /users`
@@ -54,7 +54,7 @@ Acesse: `http://127.0.0.1:8000/docs`
 ### Matrículas
 - `POST /enrollments`
 
-## 🧾 Padrão de resposta
+## Padrão de resposta
 
 ```json
 {
